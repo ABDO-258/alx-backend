@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """ flask app for alx project 0x02. i18n"""
 
+from typing import Optional
 from flask import Flask, render_template, request
 from flask_babel import Babel, gettext as _
 
@@ -20,7 +21,7 @@ babel = Babel(app)
 
 
 @babel.localeselector
-def get_locale():
+def get_locale()-> Optional[str]:
     """some doc string"""
     locale = request.args.get('locale')
     if locale in app.config['LANGUAGES']:
@@ -29,7 +30,7 @@ def get_locale():
 
 
 @app.route('/')
-def index():
+def index() -> str:
     """first root"""
     return render_template("3-index.html")
 
