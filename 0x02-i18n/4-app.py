@@ -32,7 +32,7 @@ def get_locale() -> Optional[str]:
 @app.route('/')
 def index() -> str:
     """first root"""
-    return render_template("3-index.html")
+    return render_template("4-index.html")
 
 
 if __name__ == "__main__":
