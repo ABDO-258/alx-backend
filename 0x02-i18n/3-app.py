@@ -7,7 +7,7 @@ from flask_babel import Babel, gettext as _
 app = Flask(__name__)
 
 
-class Config:
+class Config(object):
     """config for babel"""
     LANGUAGES = ['en', 'fr']
     BABEL_DEFAULT_LOCALE = 'en'
@@ -20,13 +20,13 @@ babel = Babel(app)
 
 
 @babel.localeselector
-def get_locale():
+def get_locale() -> str:
     """some doc string"""
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 @app.route('/')
-def index():
+def index() -> str:
     """first root"""
     return render_template("3-index.html")
 
