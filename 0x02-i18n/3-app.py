@@ -27,7 +27,7 @@ def get_locale() -> str:
 
 @app.route('/')
 def index() -> str:
-    """first root"""
+    """first root or indexpage route"""
     return render_template("3-index.html")
 
 
